@@ -1,34 +1,211 @@
-/* Mobile styles */
-@media (max-width: 767px) {
-    .card {
-      height: 500px; /* Adjust height for mobile */
-    }
-    .connect-button {
-      position: static; /* Position the button statically on mobile */
-      margin-top: 1rem; /* Add some spacing */
-    }
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  padding: 2rem 0;
 }
 
-/* Tablet styles */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .card {
-      height: 450px; /* Adjust height for tablets */
-    }
+/* Lead Card Styling */
+.lead-card {
+  height: auto;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Desktop styles */
-@media (min-width: 1024px) {
-    .card {
-      height: 500px; /* Adjust height for desktops */
-    }
+.lead-card:hover {
+  transform: translateY(-8px);
 }
 
-/* Tablet and desktop styles */
-@media (min-width: 768px) {
-    .connect-button {
-      position: absolute; /* Position the button absolutely on larger screens */
-      bottom: 1rem; /* Adjust the bottom position */
-      left: 50%; /* Center the button horizontally */
-      transform: translateX(-50%); /* Adjust the horizontal centering */
-    }
+.lead-image-container {
+  position: relative;
+}
+
+.lead-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 120, 212, 0.1) 0%, rgba(0, 90, 158, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lead-card:hover .lead-image-container::before {
+  opacity: 1;
+}
+
+.lead-connect-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.lead-connect-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.lead-connect-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: 0;
+}
+
+.lead-connect-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Slick Slider Customization */
+.slick-slider {
+  position: relative;
+}
+
+.slick-list {
+  padding: 1rem 0;
+}
+
+.slick-slide {
+  padding: 0 8px;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+/* Custom Arrow Styling */
+.slick-prev,
+.slick-next {
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 120, 212, 0.9) !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: #0078D4 !important;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 120, 212, 0.4);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+  color: white;
+  opacity: 1;
+  line-height: 50px;
+}
+
+.slick-prev {
+  left: -25px;
+}
+
+.slick-next {
+  right: -25px;
+}
+
+/* Custom Dots Styling */
+.slick-dots {
+  bottom: -50px;
+}
+
+.slick-dots li {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+}
+
+.slick-dots li button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  background: #374151;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li button:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #374151;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  background: linear-gradient(135deg, #0078D4, #005A9E);
+  width: 24px;
+  border-radius: 6px;
+}
+
+.slick-dots li button:hover:before {
+  background: #0078D4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .slick-prev {
+    left: -15px;
+  }
+  
+  .slick-next {
+    right: -15px;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lead-card {
+    min-height: 500px;
+  }
+  
+  .carousel-container {
+    padding: 1rem 0;
+  }
+  
+  .slick-dots {
+    bottom: -40px;
+  }
+  
+  .lead-connect-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+  
+  .lead-card {
+    min-height: 480px;
+  }
 }

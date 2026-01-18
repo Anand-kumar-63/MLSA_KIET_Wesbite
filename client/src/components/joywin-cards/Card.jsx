@@ -34,7 +34,7 @@ const EventCards = (props) => {
       onClick={handleCardClick}
     >
       <div className="Card-title">
-        <h3 className="font-bold text-lg">{props.eventName}</h3>
+        <h3>{props.eventName}</h3>
       </div>
       <div className="Card-image">
         <img src={props.image} alt="Event" />
@@ -42,17 +42,16 @@ const EventCards = (props) => {
       <div className="Card-footer">
         <div className="date-container">
           <FontAwesomeIcon icon={faCalendarAlt} />
-          <h5 className="font-normal">{props.date.split('T')[0]}</h5>
+          <h5>{props.date.split('T')[0]}</h5>
         </div>
       </div>
       {isExpanded && (
         <div className="Card-info">
-          <h3 className="font-bold text-3xl underline  text-red-100">{props.eventName}</h3>
-          <h5 className="text-2xl text-red-100">
+          <h3>{props.eventName}</h3>
+          <h5>
             <FontAwesomeIcon icon={faCalendarAlt} />{' '}
             {props.date.split('T')[0]}
           </h5>
-       
         </div>
       )}
     </div>
@@ -66,6 +65,7 @@ const UpComingEventCards = (props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
 
+  console.log(props);
   const handleCardHover = () => {
     setIsExpanded(true);
   };
@@ -74,7 +74,13 @@ const UpComingEventCards = (props) => {
     setIsExpanded(false);
   };
 
-  const handleRegister = () => {
+  const handleCardClick = () => {
+    const path = `/upcoming-event-info/${props.id}`;
+    navigate(path);
+  };
+
+  const handleRegister = (e) => {
+    e.stopPropagation(); // Prevent card click when clicking button
     const token = localStorage.getItem('token');
     if (token) {
       if (props.isRegistered) {  
@@ -98,9 +104,10 @@ const UpComingEventCards = (props) => {
       className={`Card-content ${isExpanded ? 'expanded' : ''}`}
       onMouseEnter={handleCardHover}
       onMouseLeave={handleCardLeave}
+      onClick={handleCardClick}
     >
       <div className="Card-title">
-        <h3 className="font-bold text-lg">{props.eventName}</h3>
+        <h3>{props.eventName}</h3>
       </div>
       <div className="Card-image">
         <img src={props.image} alt="Event" />
@@ -108,26 +115,17 @@ const UpComingEventCards = (props) => {
       <div className="Card-footer">
         <div className="date-container">
           <FontAwesomeIcon icon={faCalendarAlt} />
-          <h5 className="font-normal">{props.date.split('T')[0]}</h5>
+          <h5>{props.date.split('T')[0]}</h5>
         </div>
-        <button
-          onClick={handleRegister}
-          className="font-bold"
-        >
-          {props.isRegistered ? 'Already Registered' : 'Register Now'}
-        </button>
       </div>
       {isExpanded && (
         <div className="Card-info">
-          <h3 className="font-bold text-3xl underline text-red-100">{props.eventName}</h3>
-          <h5 className="text-red-100 text-xl font-bold">
+          <h3>{props.eventName}</h3>
+          <h5>
             <FontAwesomeIcon icon={faCalendarAlt} />{' '}
             {props.date.split('T')[0]}
           </h5>
-          <button
-            onClick={handleRegister}
-            className="transition-all mt-10 font-bold text-lg bd-absolute bottom-5 hover:scale-125"
-          >
+          <button onClick={handleRegister}>
             {props.isRegistered ? 'Already Registered' : 'Register Now'}
           </button>
         </div>

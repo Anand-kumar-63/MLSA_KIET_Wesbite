@@ -70,7 +70,7 @@ function MobileViewTimeline() {
   };
 
   return (
-    <div className="bg-[#00070e] pb-4">
+    <div className="bg-[#1F2937] pb-4">
       <div className="text-center">
         <Motion.h1
           initial={{ opacity: 0, x: -100 }}
@@ -104,7 +104,7 @@ function MobileViewTimeline() {
     stiffness: 110,
     delay: 0,
   }}
-  className="flex flex-col justify-center items-center h-auto border-2 border-[#7c7b7c] rounded-xl text-lg md:text-2xl bg-black text-white p-4"
+  className="flex flex-col justify-center items-center h-auto border-2 border-[#7c7b7c] rounded-xl text-lg md:text-2xl bg-[#2D3748] text-white p-4"
 >
   <Motion.h1
     initial={{ opacity: 0, x: -50 }}

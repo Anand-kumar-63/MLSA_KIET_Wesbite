@@ -10,9 +10,13 @@ function Carousel() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 3, // Show 3 slides on desktop
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: true,
+    cssEase: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
     responsive: [
       {
         breakpoint: 1024,
@@ -30,34 +34,53 @@ function Carousel() {
   };
 
   return (
-    <div>
-      <Motion.h1 
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 0.8,
-          type: "spring",
-          stiffness: 110,
-          delay: 1,
-        }}
-        className="text-center mt-0 py-16 text-6xl font-bold mb-8 bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
-        Our Chapter Leads
-      </Motion.h1>
-      <div className='w-11/12 md:w-3/4 m-auto'>
-        <div className="mt-20">
+    <div className="bg-[#1F2937] py-16 sm:py-20 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <Motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.8,
+            type: "spring",
+            stiffness: 100,
+          }}
+          className="text-center mb-4 text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#0078D4] via-[#00A4EF] to-[#005A9E] bg-clip-text text-transparent">
+          Our Chapter Leads
+        </Motion.h1>
+        <div className="w-24 h-1 bg-gradient-to-r from-[#0078D4] to-[#005A9E] rounded-full mx-auto mb-12"></div>
+        
+        <div className="carousel-container">
           <Slider {...settings}>
             {data.map((d) => (
-              <div key={d.name} className="card bg-gray-200 text-black rounded-xl relative overflow-hidden">
-                <div className='h-56 bg-blue-200 flex justify-center items-center rounded-t-xl'>
-                  <img src={d.img} alt={d.name} className="h-44 w-44 rounded-full object-cover"/>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4 p-4">
-                  <p className="text-xl font-semibold">{d.name}</p>
-                  <p className="text-center">{parse(d.review)}</p>
-                  <a href={d.linkedin} target="_blank" rel="noopener noreferrer" className='connect-button bg-indigo-800 text-white text-lg px-6 py-1 rounded-xl flex items-center gap-2'>
-                    <AiFillLinkedin /> Connect
-                  </a>
+              <div key={d.name} className="px-3 md:px-4">
+                <div className="lead-card bg-[#2D3748] rounded-2xl relative overflow-hidden group border border-[#374151] hover:border-[#0078D4] transition-all duration-300 hover:shadow-xl hover:shadow-[#0078D4]/20">
+                  <div className='lead-image-container h-64 bg-gradient-to-br from-[#0078D4]/20 to-[#005A9E]/20 flex justify-center items-center relative overflow-hidden'>
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#2D3748] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-300">
+                      <img 
+                        src={d.img} 
+                        alt={d.name} 
+                        className="h-48 w-48 rounded-full object-cover border-4 border-[#0078D4]/30 group-hover:border-[#0078D4] transition-all duration-300 shadow-xl"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-3 p-6 relative">
+                    <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-[#0078D4] transition-colors duration-300">
+                      {d.name}
+                    </h3>
+                    <div className="text-center text-gray-300 leading-relaxed text-sm sm:text-base min-h-[120px] flex items-center">
+                      <p>{parse(d.review)}</p>
+                    </div>
+                    <a 
+                      href={d.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className='lead-connect-button bg-gradient-to-r from-[#0078D4] to-[#005A9E] text-white text-base font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 mt-2 hover:from-[#005A9E] hover:to-[#0078D4] transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#0078D4]/50'
+                    >
+                      <AiFillLinkedin size={20} /> Connect
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

@@ -34,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black-700 py-4 text-white">
+    <footer className="bg-[#1F2937] py-4 text-white">
       <hr className="border-t border-gray-1000 my-4" />
       <div className="container mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

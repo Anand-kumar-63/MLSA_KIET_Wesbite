@@ -4,14 +4,10 @@ import Login from '../pages/Login/Login.jsx'
 import { MainContext } from './MainContext'
 
 function EventOrRegister() {
-    const {showRegister,setShowRegister} = React.useContext(MainContext)
-    
-
+    const {showRegister,setShowRegister} = React.useContext(MainContext);
   return (
    <>
-    {showRegister ? <Login/> : <EventPage/>}
-   
-   
+    {showRegister ? <Login/> : <EventPage/>} 
    </>
   )
 }

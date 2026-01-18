@@ -1,87 +1,99 @@
-import React from "react";
 const Landing = () => {
   return (
-    <main className="lg:h-screen overflow-hidden relative">
-      <div
-        id="left-img"
-        className="lg:w-1/2 h-screen absolute z-30 right-0 bg-transparent"
-      ></div>
-      <div
-        className="lg:h-screen w-5/12 overflow-hidden absolute z-20 bg-[#00070e] text-stone-50 rounded-r-full hover:w-full hover:rounded-none transition-all duration-500 ease-in-ease-out"
-        id="left-box"
-      >
-        <div className="lg:w-screen h-screen flex flex-row justify-items-stretch absolute p-10 z-10">
-          <img
-            src="/l3.png"
-            alt="logo"
-            className="lg:w-auto justify-center items-center animate-pulse mix-blend-multiply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-          />
-          <div className="hidden lg:flex flex-col items-center justify-center">
-            <h1 className="lg:font-bold text-7xl my-6">
+    <main className="lg:h-screen overflow-hidden relative bg-[#1F2937]">
+      <div className="hidden lg:block relative w-full h-screen">
+        <div className="absolute left-0 top-0 w-1/2 h-full bg-[#1F2937] z-20 flex items-center justify-center transition-all duration-700 ease-in-out hover:w-full hover:rounded-none rounded-r-[100px] overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1F2937] via-[#2D3748] to-[#1F2937] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div className="relative z-10 flex flex-col items-center justify-center px-12 max-w-2xl">
+            <div className="mb-8 transform transition-transform duration-500 group-hover:scale-110">
+              <img
+                src="/l3.png"
+                alt="MLSA Logo"
+                className="w-32 h-32 object-contain filter drop-shadow-2xl"
+              />
+            </div>
+            <h1 className="text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight text-center">
               At{" "}
-              <span className="lg:code bg-clip-text text-transparent bg-gradient-to-r from-[#2afadf] to-sky-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0078D4] via-[#00A4EF] to-[#005A9E]">
                 KIET
               </span>{" "}
               Ghaziabad
             </h1>
-            <h3 className="lg:text-3xl font-mono items-center">
+            <h2 className="text-2xl xl:text-3xl font-medium text-gray-300 text-center tracking-wide">
               Unchain Your Will
-            </h3>
+            </h2>
+            <div className="mt-8 w-24 h-1 bg-gradient-to-r from-[#0078D4] to-[#005A9E] rounded-full"></div>
           </div>
         </div>
-      </div>
-      <div
-        className="lg:h-screen w-screen flex flex-row overflow-hidden absolute z-10 justify-items-stretch p-10 bg-cyan-100 text-stone-950"
-        id="right-box"
-      >
-        <img
-          src="/l3.png"
-          alt="logo"
-          className="lg:w-auto justify-center items-center"
-        />
-        <div className="hidden lg:flex flex-col justify-center items-center">
-          <h1 className="lg:font-bold text-7xl my-6">
-            The{" "}
-            <span className="lg:code bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
-              MLSA
-            </span>{" "}
-            Community
-          </h1>
-          <h3 className="lg:text-3xl font-mono items-center">
-            Liberate The Mind
-          </h3>
-        </div>
-        <div id="right-img" className="lg:w-screen h-screen absolute z-0"></div>
-        <div className="hidden lg:block absolute top-0 right-10 z-40 p-4">
-          <div className="w-32 h-32 xl:w-40 xl:h-40 bg-cyan-100 flex justify-center items-center">
+
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-br from-[#0078D4] via-[#00A4EF] to-[#005A9E] z-10 flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+          <div className="relative z-10 flex flex-col items-center justify-center px-12 max-w-2xl">
+            <div className="mb-8">
+              <img
+                src="/l3.png"
+                alt="MLSA Logo"
+                className="w-32 h-32 object-contain filter drop-shadow-2xl brightness-0 invert"
+              />
+            </div>
+            <h1 className="text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight text-center">
+              The{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-white">
+                MLSA
+              </span>{" "}
+              Community
+            </h1>
+            <h2 className="text-2xl xl:text-3xl font-medium text-white/90 text-center tracking-wide">
+              Liberate The Mind
+            </h2>
+            <div className="mt-8 w-24 h-1 bg-white/30 rounded-full"></div>
+          </div>
+          
+          {/* College Logo - Top Right */}
+          <div className="absolute top-8 right-8 z-40 p-3 bg-white rounded-lg shadow-2xl transform transition-transform duration-300 hover:scale-110">
             <img
               src="/college-img.png"
-              alt="Top Right Corner"
-              className="w-full h-full object-cover"
+              alt="KIET College"
+              className="w-24 h-24 xl:w-32 xl:h-32 object-contain"
             />
           </div>
         </div>
       </div>
-      <div
-        className="lg:hidden w-screen h-screen flex flex-col justify-center items-center p-10 bg-slate-950 text-stone-950 z-10 relative"
-        id="mobile-box"
-      >
-        <img
-          src="/l3.png"
-          alt="logo"
-          className="w-auto"
-        />
-        <div className="flex flex-col justify-center items-center text-slate-50">
-          <h1 className="font-bold text-4xl my-6">
-            AT{" "}
-            <span className="code bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
+
+      <div className="lg:hidden w-screen h-screen flex flex-col justify-center items-center p-8 bg-gradient-to-br from-[#0078D4] via-[#00A4EF] to-[#005A9E] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center">
+          <div className="mb-8">
+            <img
+              src="/l3.png"
+              alt="MLSA Logo"
+              className="w-24 h-24 mx-auto object-contain filter drop-shadow-2xl brightness-0 invert"
+            />
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-white leading-tight">
+            At{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-white">
               KIET
             </span>{" "}
             Ghaziabad
           </h1>
-          <h3 className="text-3xl font-mono items-center">
+          <h2 className="text-xl sm:text-2xl font-medium text-white/90 mb-6 tracking-wide">
+            The MLSA Community
+          </h2>
+          <h3 className="text-lg sm:text-xl text-white/80 mb-4">
             Liberate The Mind
           </h3>
+          <div className="w-20 h-1 bg-white/30 rounded-full mt-4"></div>
         </div>
       </div>
     </main>

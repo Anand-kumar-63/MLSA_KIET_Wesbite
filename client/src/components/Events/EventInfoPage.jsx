@@ -69,10 +69,10 @@ const EventInfoPage = ({ isUpcoming }) => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-black">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#1F2937]">
       <Main_sidebar className="lg:mr-8" />
       <div className="flex flex-1 flex-col justify-center items-center p-4 sm:p-8">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl mt-6 font-bold text-sky-600 text-center mb-4 sm:mb-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl mt-6 font-bold text-[#0078D4] text-center mb-4 sm:mb-8">
           {event.name}
         </h1>
         <div className="flex justify-center mb-4 sm:mb-8 w-full">
@@ -93,14 +93,14 @@ const EventInfoPage = ({ isUpcoming }) => {
           </p>
         ) : (
           <>
-            <h2 className="text-xl sm:text-2xl md:text-3xl text-cyan-400 mb-4 sm:mb-8 text-center">
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-[#0078D4] mb-4 sm:mb-8 text-center">
               You have to fill the form below to confirm your registration:
             </h2>
             <a
               href={event.link.startsWith('http') ? event.link : `https://${event.link}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-300 font-bold underline mb-4 sm:mb-8 text-center break-words max-w-4xl"
+              className="text-[#0078D4] font-bold underline mb-4 sm:mb-8 text-center break-words max-w-4xl"
             >
               {event.link}
             </a>
